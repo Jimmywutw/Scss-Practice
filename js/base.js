@@ -1,4 +1,5 @@
 
+$(document).ready(function() {
 $(function(){
 $("#gotop").click(function(){
 jQuery("html,body").animate({
@@ -13,3 +14,5 @@ $('#gotop').stop().fadeOut("fast");
 }
 });
 });
+});
+
