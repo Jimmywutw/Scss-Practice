@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body {
+  margin: 0px auto;
+  height: 100%; }
+
 .coverflow {
   display: block;
   position: relative; }
@@ -76,25 +80,28 @@
   display: block;
   visibility: hidden; }
 
+#app {
+  background: #024067; }
+
 ul,
 li {
-  padding: 1px 0 1px 20px;
+  padding: 1px 0 1px 0px;
   margin: 0;
   list-style: none; }
 
 #menu {
-  width: 80%;
+  max-width: 800px;
   background: #024067;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-  padding: 0 10%; }
+  margin: 0 auto; }
 
 #menu ul {
   display: flex;
   position: relative;
-  width: 80%; }
+  width: 100%; }
 
 #menu ul li {
   flex: 1;
+  width: 100%;
   line-height: 40px;
   color: #fff;
   font-size: 14px;
@@ -106,16 +113,21 @@ li {
 .menubg {
   position: absolute;
   background: #8f0000;
-  height: 40px;
-  top: 0;
+  height: 95%;
+  top: 1px;
   z-index: 1;
   transition: all .4s;
-  left: 0; }
+  left: 24px;
+  width: calc(100% / 7); }
 
 .se {
   text-align: center;
   max-width: 800px;
-  margin: 10px auto; }
+  margin: 0px auto;
+  padding-top: 10px; }
+
+.seblock {
+  background-color: white; }
 
 .font {
   text-align: center;
@@ -128,6 +140,9 @@ li {
   padding-left: 20px;
   padding-right: 20px;
   position: relative; }
+  @media screen and (max-width: 600px) {
+    .tab4box > div {
+      width: 100%; } }
   .tab4box > div > .imgbox {
     width: 60px;
     height: 60px;
@@ -154,6 +169,9 @@ li {
   max-width: 1120px;
   width: 100%;
   margin: 60px auto 0 auto; }
+  @media screen and (max-width: 600px) {
+    .gripcontainer {
+      margin: 0px auto 0 auto; } }
   .gripcontainer > .pic {
     position: relative;
     width: calc((100% / 3) - 60px / 3);
@@ -164,6 +182,11 @@ li {
     margin-right: 10px;
     text-align: center;
     overflow: hidden; }
+    @media screen and (max-width: 600px) {
+      .gripcontainer > .pic {
+        width: calc((100% / 2) - 40px / 2); }
+        .gripcontainer > .pic:nth-child(3) {
+          margin-top: 20px; } }
     .gripcontainer > .pic > img {
       width: 100%;
       height: auto;
@@ -215,6 +238,9 @@ li {
   text-align: center; }
   .animation > h2, .animation span {
     color: white; }
+    @media screen and (max-width: 480px) {
+      .animation > h2, .animation span {
+        font-size: 80%; } }
   .animation .game {
     width: calc(100% / 4 - 80px /4);
     background-color: rgba(0, 0, 0, 0.3);
@@ -246,7 +272,7 @@ li {
   background-repeat: no-repeat;
   max-width: 100%;
   width: 100%;
-  height: 70vh;
+  height: 100%;
   position: relative; }
 
 .infobox-2 {
@@ -254,6 +280,11 @@ li {
   height: auto;
   float: left;
   margin-top: 30px; }
+  @media screen and (max-width: 600px) {
+    .infobox-2 {
+      width: 97%;
+      margin-left: 10px;
+      margin-right: 10px; } }
   .infobox-2 .infobox-left {
     width: 80%;
     height: 200px;
@@ -272,6 +303,9 @@ li {
       font-size: 14px;
       line-height: 26px;
       color: white; }
+
+#name, #email, #phone {
+  width: 86%; }
 
 .infobox-right-1 {
   width: 50%;
@@ -298,7 +332,7 @@ li {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-width: 0;
-    max-width: 217px; }
+    width: 80%; }
 
 .ion-home, .ion-ios-telephone, .ion-ios-printer-outline, .ion-email, .ion-android-globe {
   color: #1abc9c;
@@ -333,5 +367,8 @@ li {
 .ion-chevron-up {
   line-height: 2;
   transition: all .5s; }
+
+.icon-move-left {
+  padding-left: 40px; }
 
 /*# sourceMappingURL=base.css.map */
