@@ -5,39 +5,34 @@
 	<title>Document1</title>
 	 <link rel="stylesheet" href="css/base.css">
 	 <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
-	<!-- Start 往頂部箭頭 Jquery碼//-->
-
+	<!--tab插入檔-->
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
-<body style="margin-bottom: 90px">
+<body>
 	<header class="coverflow">
+		<img class="img-visible" src="http://www.gene-rator.com/images/generator/cooperation-vendors/generator.jpg" alt="">
 		<a href=""><img src="http://www.gene-rator.com/images/generator/cooperation-vendors/generator.jpg" alt="123"></a>
 		<a href=""><img src="http://www.gene-rator.com/images/generator/cooperation-vendors/generator2.jpg"" alt="234"></a>
 		<a href=""><img src="http://www.gene-rator.com/images/generator/cooperation-vendors/generator.jpg" alt="123"></a>		
 	</header>
-
+		
+		<div id="app">
+        <div id="menu">
+            <ul>
+                <li v-for="(item,index) in menulist" @click="movebg(item,index)">
+                    {{item.title}}
+                </li>
+                <div class="menubg"></div>
+            </ul>
+        </div>
+        <div class="se">
+            {{id}}
+        </div>
+    </div>
 	
     	
-	<section id="container">
-		<span id="tab-1"></span>
-		<span id="tab-2"></span>
-		<span id="tab-3"></span>
-		<span id="tab-4"></span>
-		<span id="tab-5"></span>
-	   <div id="tab">
-		<span><a href="#tab-1">選項1</a></span>
-		<span><a href="#tab-2">選項2</a></span>
-		<span><a href="#tab-3">選項3</a></span>
-		<span><a href="#tab-4">選項4</a></span>
-		<span><a href="#tab-5">選項5</a></span>
-		<div class="tab-1-content">
-			菁磊科技有限公司源自於一群具有遊戲線上產品研發、行銷經驗的研發團隊，公司的核心目標就是不斷將創意投入於開發的遊戲產品中，並將產品品質超越國際市場標準、打入全球市場；憑藉著多年來在資訊服務上的豐富經驗，目前已佈局全東南亞及內地，正朝著日本及歐美國家發展，搭配各專業領域人才的優良技術與知識，我們致力於提供客戶最完美的服務。
-		</div>
-		<div class="tab-2-content">tab-2-內容</div>
-		<div class="tab-3-content">tab-3-內容</div>
-		<div class="tab-4-content">tab-4-內容</div>
-		<div class="tab-5-content">tab-5-內容</div>
-	   </div>
-	</section>
+	
 
 	<section id = "container1" class="font">
 		<h1>關於菁磊科技</h1>
@@ -274,12 +269,12 @@
     	</div>
     	<div class="infobox-2" style="background-color: rgba(0,0,0,.6);">
     		<div class="infobox-right-1">
-    			<form action="#">
+    			<form method="post" action="#">
     			<h4>聯繫表單</h4>
     			<input type="text" size="30" placeholder="姓名"><br>
-    			<input type="text" size="30" placeholder="郵件"><br>
+    			<input type="email" size="30" placeholder="郵件"><br>
     			<input type="text" size="30" placeholder="電話"><br>
-    			<a id="submit" href="">發送</a>
+    			<input id="submit" type="submit" value="發送">
     		</div>
     		<div class="infobox-right-2">
     			<textarea name="message" id="message" cols="25" rows="10" placeholder="內容"></textarea>
@@ -295,6 +290,56 @@
 		</div>
 </div>
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/vue.min.js"></script>
 <script src="js/base.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            id: "菁磊科技有限公司源自於一群具有遊戲線上產品研發、行銷經驗的研發團隊，公司的核心目標就是不斷將創意投入於開發的遊戲產品中",
+            menulist: [{
+                title: 'UI',
+                value: "菁磊科技有限公司源自於一群具有遊戲線上產品研發、行銷經驗的研發團隊，公司的核心目標就是不斷將創意投入於開發的遊戲產品中"
+                
+            }, {
+                title: '输入',
+                value: 2
+            }, {
+                title: '媒体',
+                value: 3
+            }, {
+                title: '导航',
+                value: 4
+            }, {
+                title: '其他',
+                value: 5
+            }, {
+                title: '网页模板',
+                value: 6
+            }, {
+                title: '常用',
+                value: 7
+            }]
+        },
+        mounted() {
+            //获取menu宽度
+            let menuwidth = document.querySelector("#menu ul").offsetWidth
+            //获取li
+            let liwidth = document.querySelectorAll("#menu li")
+            //背景
+            let bgWidth = document.querySelector(".menubg")
+            //设置背景的宽度
+            bgWidth.style.width = liwidth[0].offsetWidth + 'px'
+        },
+        methods: {
+            movebg(item, index) {
+                let bgWidth = document.querySelector(".menubg")
+                let selfLeft = document.querySelectorAll("#menu li")[index].offsetLeft
+                bgWidth.style.left = selfLeft + 'px'
+                this.id = item.value
+            }
+        }
+    })
+    </script>
 </body>
 </html>
