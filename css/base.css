@@ -78,7 +78,7 @@
 
 ul,
 li {
-  padding: 0;
+  padding: 1px 0 1px 20px;
   margin: 0;
   list-style: none; }
 
@@ -90,7 +90,8 @@ li {
 
 #menu ul {
   display: flex;
-  position: relative; }
+  position: relative;
+  width: 80%; }
 
 #menu ul li {
   flex: 1;
@@ -112,7 +113,9 @@ li {
   left: 0; }
 
 .se {
-  text-align: center; }
+  text-align: center;
+  max-width: 800px;
+  margin: 10px auto; }
 
 .font {
   text-align: center;
@@ -324,7 +327,8 @@ li {
   height: 40px;
   background-color: white;
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #1abccb; }
 
 .ion-chevron-up {
   line-height: 2;
